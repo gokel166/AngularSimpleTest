@@ -7,24 +7,11 @@ import { Club } from './club';
 
 @Injectable()
 export class ClubsService {
-  clubs: Club[];
   clubsUrl: string = 'http://localhost:4200/assets/colors.json';
   data: Observable<any>;
-  constructor(private http: HttpClient) {
-    this.clubs = [
-      {
-        id: 5,
-        name: 'Teal'
-      }
-    ];
-  }
+  constructor(private http: HttpClient) { }
 
-  getClubs(): Club[] {
-    console.log('Fetching clubs from service...');
-    return this.clubs;
-  }
-
-  addUser(club: Club) {
-    this.clubs.unshift(club);
+  getPosts(): Observable<Club[]> {
+    return this.http.get<Club[]>(this.clubsUrl);
   }
 }

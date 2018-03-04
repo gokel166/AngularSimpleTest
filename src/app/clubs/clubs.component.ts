@@ -11,12 +11,13 @@ import { Club } from '../club';
 export class ClubsComponent implements OnInit {
 
   club: Club[];
-  loaded: boolean = false;
-  data: any;
 
   constructor(private clubService: ClubsService) { }
 
   ngOnInit() {
+    this.clubService.getPosts().subscribe(club => {
+      console.log(club);
+    });
   }
 
 }
