@@ -15,9 +15,6 @@ export class ClubsComponent implements OnInit {
   constructor(private clubService: ClubsService) { }
 
   ngOnInit() {
-    this.clubService.getPosts().subscribe(club => {
-      console.log(club);
-    });
   }
 
 }
